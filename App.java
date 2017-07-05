@@ -15,6 +15,8 @@ public class App extends Application  {
     height = size.getHeight();
 
     Group root = new Group();
+    MainMenu m = new MainMenu(root, height, width);
+    m.setUp();
     Scene scene = new Scene(root, width - 50, height - 50); //TODO change to full screen
     //TODO change for different size media
 
