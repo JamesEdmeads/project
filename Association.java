@@ -2,32 +2,18 @@ import java.util.*;
 
 public class Association  {
 
-  private String name;
-  private ArrayList<MediaType> songs = new ArrayList<MediaType>();
+  private ArrayList<String> songs = new ArrayList<String>();
 
-  Association(String name)  {
-
-    this.name = name;
-
-  }
-
-  public String getName()  {
-
-    String s = name;
-    return s;
-
-  }
 
   public void addSong(String s) {
 
-    MediaType m = new MediaType(s);
-    songs.add(m); //add check
+    songs.add(s); //add check
 
   }
 
-  public ArrayList<MediaType> getSongs()  {
+  public String[] getSongs()  {
 
-    ArrayList<MediaType> temp = new ArrayList<MediaType>(songs);
+    String[] temp = songs.toArray(new String[songs.size()]);
 
     return temp;
 

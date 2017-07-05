@@ -9,6 +9,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
+import java.util.*;
+
 public class MainMenu  {
 
   private Group group;
@@ -35,8 +37,12 @@ public class MainMenu  {
   }
 
   private void show(MouseEvent e)  {
+
+    Data d = new Data();
+
+    ArrayList<MediaType> s = d.getData();
     
-    String file = "test.jpg";
+    String file = "stored/"+s.get(0).getName();
     Image image = new Image(file);
     ImageView imageV = new ImageView();
     imageV.setImage(image);
@@ -44,7 +50,8 @@ public class MainMenu  {
     imageV.setPreserveRatio(true);
     group.getChildren().add(imageV);
 
-    String song = "test.wav";
+    String song = "stored/"+s.get(0).getSongs()[0];
+    System.out.println(song);
     Media m = new Media(new File(song).toURI().toString());
     MediaPlayer mp = new MediaPlayer(m);
     mp.setVolume(0.5);

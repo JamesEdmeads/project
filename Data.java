@@ -18,10 +18,26 @@ public class Data  {
 
     Iterator i = results.iterator();
     while(i.hasNext())  {
-      MediaType m = new MediaType(i.next().toString());
-      //need association stuff here
-      data.add(m);
+      String s = i.next().toString();
+      String[] end = s.split("\\.");
+      if(end[1].equals("jpg"))  {
+        MediaType m = new MediaType(s);
+        System.out.println("first here "+s);
+        data.add(m);
+      }
+      else {
+        MediaType temp = data.get(data.size()-1);
+        temp.addAssociation(s);
+      }
     }
+
+  }
+
+  public ArrayList<MediaType> getData()  {
+
+    ArrayList<MediaType> temp = new ArrayList<MediaType>(data);
+  
+    return temp;
 
   }
 
